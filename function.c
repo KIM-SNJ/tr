@@ -234,7 +234,6 @@ DWORD WINAPI monstermove(LPVOID lpParam) {
 	srand((unsigned int)time(NULL));
 	while (1) {
 		Sleep(1000);
-		Sleep(1000);
 		monstertime++;
 		if (monstertime == 10) {
 			monstertype = rand() % 3 + 1;
