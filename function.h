@@ -9,8 +9,12 @@ extern int mapnum;
 extern int see;
 
 extern int gameset;
+
+extern int door;
+
 // 다른 파일에서 쓸 함수들의 모양 선언
 void map(int num);
+
 DWORD WINAPI monstermove(LPVOID lpParam);
 
 DWORD WINAPI seenum(LPVOID lpParam);

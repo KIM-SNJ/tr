@@ -3,11 +3,10 @@
 #include <conio.h>
 #include <windows.h>
 
-// 진짜 변수 생성 및 초기화
 int mapnum = 0;
 int see = 0;
 int gameset = 0;
-
+int door = 0;
 
 int main() {
 	HANDLE MonsterThread = CreateThread(NULL, 0, monstermove, NULL, 0, NULL);
@@ -15,25 +14,35 @@ int main() {
 
 	if (MonsterThread == NULL || SeeThread == NULL) {
 
-		// 생성에 성공한 스레드가 있다면 그것만 닫아줍니다.
+
 		if (MonsterThread != NULL) CloseHandle(MonsterThread);
 		if (SeeThread != NULL) CloseHandle(SeeThread);
 
-		return 1; // 프로그램 종료
+		return 1;
 	};
 
-	map(mapnum);
+	map(7);
 	while (1) {
 		if (gameset == 0) {
 			Sleep(500);
-			if (see == 119) {
+			if (see == 119 || see == 101 || see == 0) {
 				if (mapnum == 0) {
 					system("cls");
-					map(0);
+					map(mapnum);
 				}
 				else {
 					system("cls");
 					map(mapnum);
+				}
+				if (see == 101) {
+					if (door == 0) {
+						door = 1;
+						see = 0;
+					}
+					else {
+						door = 0;
+						see = 0;
+					}
 				}
 			}
 			else if (see == 97) {
@@ -54,4 +63,5 @@ int main() {
 	WaitForSingleObject(SeeThread, INFINITE);
 	CloseHandle(MonsterThread);
 	CloseHandle(SeeThread);
+	return 0;
 }
