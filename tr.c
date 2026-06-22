@@ -108,22 +108,22 @@ int main() {
             else if (monstertype == 2 && attacktimer % 2 == 0)
                 Beep(1975, 100);
 
-            if (monstertype == 1 || monstertype == 3) {
+            if (monstertype == 3) {
                 if (attacktimer > 50) {
                     if (gameset == 0) {
                         if (monstertype == 3 && door == 0)
-                            gameset = 1;
-                        else if (monstertype == 1 && door == 1)
                             gameset = 1;
                     }
                     monstertype = 0;
                 }
             }
-            else if (monstertype == 2) {
+            else if (monstertype == 2 || monstertype == 1) {
                 if (attacktimer > 30) {
                     if (gameset == 0) {
                         if (monstertype == 2 && door == 0)
-                        gameset = 1;
+                            gameset = 1;
+                        else if (monstertype == 1 && door == 1)
+                            gameset = 1;
                     }
                     monstertype = 0;
                 }
