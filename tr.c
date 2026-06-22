@@ -104,9 +104,9 @@ int main() {
             attacktimer++;
 
             if (monstertype == 3 && attacktimer % 5 == 0)
-                Beep(1567.982, 100);
+                Beep(1567, 100);
             else if (monstertype == 2 && attacktimer % 2 == 0)
-                Beep(1975.533, 100);
+                Beep(1975, 100);
 
             if (monstertype == 1 || monstertype == 3) {
                 if (attacktimer > 50) {
