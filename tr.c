@@ -74,9 +74,11 @@ int main() {
                 gameset = 2;
             }
 
-            wdoor -= 2;
-            if (updown == 1) temp += 5;
-            else if (updown == 0) temp -= 5;
+            wdoor -= 3;
+            if (updown == 1) 
+                temp += 5;
+            else if (updown == 0) 
+                temp -= 5;
 
             // temp 범위 제한 (0 ~ 100)
             if (temp > 100) temp = 100;
@@ -89,7 +91,7 @@ int main() {
             // 몬스터 타이머 계산
             if (monstertype == 0) {
                 monstertime++;
-                if (monstertime >= 10) {
+                if (monstertime >= 7) {
                     monstertype = rand() % 3 + 1;
                     monstertime = 0;
                     attacktimer = 0;
@@ -114,14 +116,17 @@ int main() {
                         else if (monstertype == 1 && door == 1)
                             gameset = 1;
                     }
+                    monstertype = 0;
                 }
-                else if (attacktimer > 30) {
+            }
+            else if (monstertype == 2) {
+                if (attacktimer > 30) {
                     if (gameset == 0) {
                         if (monstertype == 2 && door == 0)
-                            gameset = 1;
+                        gameset = 1;
                     }
+                    monstertype = 0;
                 }
-                monstertype = 0;
             }
         }
 
