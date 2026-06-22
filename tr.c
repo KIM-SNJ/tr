@@ -91,7 +91,7 @@ int main() {
             // 몬스터 타이머 계산
             if (monstertype == 0) {
                 monstertime++;
-                if (monstertime >= 7) {
+                if (monstertime >= 6) {
                     monstertype = rand() % 3 + 1;
                     monstertime = 0;
                     attacktimer = 0;
